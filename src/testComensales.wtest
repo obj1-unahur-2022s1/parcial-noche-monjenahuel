@@ -1,5 +1,6 @@
 import comidas.*
 import comensales.*
+
 describe "Test de Comensales" {
 	
 	method initialize() {
@@ -7,19 +8,48 @@ describe "Test de Comensales" {
 	}
 	
 	test "Vegetariano satisfecho " {
-		assert.that(true)
+		const veg = new Vegetariano(peso=68500)
+		var provoleta = new Provoleta(peso=190,tieneEspecias=true)
+		var panMasaMadre2 = new PanDeMasaMadre()
+		var hamburguesaVpanMM2 = new HamburguesaVegetariana(legumbre="garbanzos",pan=panMasaMadre)
+		var panMasaMadre = new PanDeMasaMadre()
+		var hamburguesaVpanMM = new HamburguesaVegetariana(legumbre="garbanzos",pan=panMasaMadre)
+		///////////////////////////////////
+		veg.comer(provoleta)
+		veg.comer(hamburguesaVpanMM2)
+		veg.comer(hamburguesaVpanMM)
+		////////////////////////////////////////
+		assert.that(veg.estaSatisfecho())
 	}
 
 	test "Popular no satisfecho" {
-		assert.notThat(false)	
+		const popular = new HambrePopular(peso=85000)
+		///////////////////////////////////////////////////
+		var corte1 = new CorteDeCarne(nombre="asado",calidad=10,peso=250)
+		var corte2 = new CorteDeCarne(nombre="entraña",calidad=7,peso=200)
+		var corte3 = new CorteDeCarne(nombre="chorizo",calidad=8,peso=50)
+		////////////////////////////////////////////
+		var parrillada1 = new Parrillada()
+		parrillada1.pedirCorte(corte1)
+		parrillada1.pedirCorte(corte2)
+		parrillada1.pedirCorte(corte3)
+		/////////////////////////////////////////////////////////////
+		popular.comer(parrillada1)
+		assert.notThat(popular.estaSatisfecho())	
 	}	
 	
 	test "Paladar Fino, le agrada Hamburgesa de carne de 250 gramos con pan de masa madre." {
-		assert.that(true)	
+		const fino = new PaladarFino(peso=60000)
+		var panMasaMadre = new PanDeMasaMadre()
+		var hamburguesaCpanMM = new HamburguesaDeCarne(pan=panMasaMadre)
+		assert.that(fino.leAgrada(hamburguesaCpanMM))	
 	}
 	
-	test "Paladar No Fino, no le agrada Hamburguesa de carne de 250 gramos con pan casero." {
-		assert.notThat(false)	
+	test "Paladar Fino, no le agrada Hamburguesa de carne de 250 gramos con pan casero." {
+		const fino = new PaladarFino(peso=60000)
+		var panCasero = new PanCasero()
+		var hamburguesaCpanC = new HamburguesaDeCarne(pan=panCasero)
+		assert.notThat(fino.leAgrada(hamburguesaCpanC))	
 	}
 	
 }

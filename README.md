@@ -1,7 +1,7 @@
 # La Parrilla de Rosendo
 Rosendo tiene una parrilla y nos pidió un sistema para administrar su menú.
 
-## 1. Comidas
+## 1. Comidas[README.md](README.md)
 Nos piden modelar los distintos platos que ofrece la parrilla. De cada **Plato** nos interesa conocer:
 * su **peso**, medido en gramos;
 * si es **apto vegetariano**;
