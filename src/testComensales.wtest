@@ -33,7 +33,7 @@ describe "Test de Comensales" {
 		parrillada1.pedirCorte(corte1)
 		parrillada1.pedirCorte(corte2)
 		parrillada1.pedirCorte(corte3)
-		/////////////////////////////////////////////////////////////
+		//////////////////////////////////////////////////////////////
 		popular.comer(parrillada1)
 		assert.notThat(popular.estaSatisfecho())	
 	}	
