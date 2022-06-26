@@ -1,10 +1,18 @@
+/*
+1) La mejor opción para manejar el peso en las comidas era la siguiente:
+. método abstracto peso en Plato
+. const property peso en Provoleta
+. en esAbundante() usar self.peso()
+* 
+2) Para esté modelo lo más adecuado era que los panes sean objetos con nombre propio en lugar de clases. "Los tres únicos panes..." la clave en el enunciado esta en la palabra únicos.
+ */
 class Plato {
-	var property peso = 0
+	method peso()
 	
 	method esVegetariano()
 	
 	method esAbundante(){
-		return peso > 250
+		return self.peso() > 250
 	}
 	
 	method valoracion()
@@ -13,8 +21,8 @@ class Plato {
 
 class Provoleta inherits Plato{
 	const property tieneEspecias
-	
-	override method esVegetariano()= return not tieneEspecias
+	const property peso
+	override method esVegetariano()=  not tieneEspecias
 	
 	method esEspecial(){
 		return self.esAbundante() or tieneEspecias
@@ -40,7 +48,7 @@ class HamburguesaDeCarne inherits Plato{
 		return 60 + pan.valoracion()
 	}
 	
-	override method esVegetariano()= return false
+	override method esVegetariano()= false
 }
 //------------------Panes-------------------//
 class Pan{
@@ -71,7 +79,7 @@ class HamburguesaVegetariana inherits HamburguesaDeCarne{
 	
 	const property legumbre //string
 	
-	override method esVegetariano()= return true
+	override method esVegetariano()=  true
 	
 	override method valoracion(){
 		return super() + 17.min(legumbre.size()* 2)
@@ -86,7 +94,7 @@ class Parrillada inherits Plato{
 		cortesPedidos.add(corte)
 	}
 	
-	override method esVegetariano()= return false
+	override method esVegetariano()=  false
 	
 	override method peso(){
 		return cortesPedidos.sum({c => c.peso()})
