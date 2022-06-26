@@ -1,6 +1,6 @@
 import comidas.*
 describe "Test de Comidas" {
-	/
+	
 	//////////////////////////////////VARIABLES//////////////////////////////////
 	var panCasero = new PanCasero()
 	var hamburguesaCpanC = new HamburguesaDeCarne(pan=panCasero)

@@ -1,3 +1,6 @@
+/*
+ Recordá que podes usar el mensaje ```numero.even()``` a un número para saber si es par.
+ */
 import comidas.*
 
 class Comensales {
